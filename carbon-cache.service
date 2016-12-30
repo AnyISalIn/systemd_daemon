@@ -1,0 +1,13 @@
+[unit]
+Description=Start carbon cache
+ConditionPathExists=/opt/graphite/bin/carbon-cache.py
+Before=evmserverd.service
+Requires=evmserverd.service
+[Service]
+Type=forking
+ExecStart=/bin/python /opt/graphite/bin/carbon-cache.py start
+ExecStop=/bin/python /opt/graphite/bin/carbon-cache.py stop
+Restart=always
+[Install]
+WantedBy=multi-user.target
+®
