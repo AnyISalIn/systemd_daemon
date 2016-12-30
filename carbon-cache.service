@@ -10,4 +10,3 @@ ExecStop=/bin/python /opt/graphite/bin/carbon-cache.py stop
 Restart=always
 [Install]
 WantedBy=multi-user.target
-®
