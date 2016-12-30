@@ -1,0 +1,10 @@
+[unit]
+Description=Start Worker Monitor
+ConditionPathExists=/root/vaneq-worker-monitor.py
+[Service]
+Type=simple
+ExecStart=/usr/bin/nohup /bin/python /root/vaneq-worker-monitor.py
+ExecStop=kill -9 $(ps -ef|grep vaneq-worker|head -n1|awk {'print $2'})
+Restart=always
+[Install]
+WantedBy=multi-user.target
